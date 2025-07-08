@@ -51,8 +51,9 @@ public class Main {
             } else if (userChoice.equals("c")) {
                 System.out.print("Email: ");
                 String email = scanner.next();
+                scanner.nextLine();
                 System.out.print("Address: ");
-                String address = scanner.next();
+                String address = scanner.nextLine();
                 System.out.print("Recharge balance:$ ");
                 Double balance = scanner.nextDouble();
                 loggedInUser = new GuestCustomer(email, address, balance, inventory, shippingService, mailingService);
@@ -122,7 +123,8 @@ public class Main {
                             System.out.print("Enter ISBN: ");
                             String isbn = scanner.next();
                             System.out.print("Enter title: ");
-                            String title = scanner.next();
+                            scanner.nextLine();
+                            String title = scanner.nextLine();
                             System.out.print("Enter publishing date (dd-mm-yyyy): ");
                             String psdate = scanner.next();
                             Date pdate = parseDate(psdate);
@@ -130,8 +132,9 @@ public class Main {
                                 System.out.println("Invalid inmput.");
                                 break;
                             }
+                            scanner.nextLine();
                             System.out.print("Enter description: ");
-                            String desc = scanner.next();
+                            String desc = scanner.nextLine();
                             System.out.print("Enter price: ");
                             Double price = scanner.nextDouble();
 

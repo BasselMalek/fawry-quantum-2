@@ -64,10 +64,10 @@ public class GuestCustomer extends User {
             return false;
         }
 
-        if (selectedBook instanceof Deliverable) {
-            inventory.updateQuantity(selectedBook.getBook().getIsbn(), inventory.getBook(selectedBook.getBook().getIsbn()).getQuantity() - selectedBook.getQuantity());
+        if (selectedBook.getBook() instanceof Deliverable) {
+            inventory.updateQuantity(selectedBook.getBook().getIsbn(), (inventory.getBook(selectedBook.getBook().getIsbn()).getQuantity() - selectedBook.getQuantity()));
             shippingService.handleDeliverableBook((DeliverableBook) selectedBook.getBook());
-        } else if (selectedBook instanceof Mailable) {
+        } else if (selectedBook.getBook() instanceof Mailable) {
             mailingService.handleMailableBook((MailableBook) selectedBook.getBook());
         }
 
