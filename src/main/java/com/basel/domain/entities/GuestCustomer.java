@@ -66,9 +66,9 @@ public class GuestCustomer extends User {
 
         if (selectedBook.getBook() instanceof Deliverable) {
             inventory.updateQuantity(selectedBook.getBook().getIsbn(), (inventory.getBook(selectedBook.getBook().getIsbn()).getQuantity() - selectedBook.getQuantity()));
-            shippingService.handleDeliverableBook((DeliverableBook) selectedBook.getBook());
+            shippingService.handleDeliverableBook((DeliverableBook) selectedBook.getBook(), address);
         } else if (selectedBook.getBook() instanceof Mailable) {
-            mailingService.handleMailableBook((MailableBook) selectedBook.getBook());
+            mailingService.handleMailableBook((MailableBook) selectedBook.getBook(), email);
         }
 
         modifyBalance(-(selectedBook.getBook().getPrice() * selectedBook.getQuantity()));
